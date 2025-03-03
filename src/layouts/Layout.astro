@@ -17,6 +17,14 @@ const { title, description = "Smart Finances - Your Guide to Financial Freedom" 
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+    <!-- Add Open Graph meta tags for better social sharing -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/favicon.svg" /> {/* Replace with a proper image URL */}
+    <meta property="og:url" content={Astro.url} />
+    <meta name="twitter:card" content="summary_large_image" />
+
 		<title>{title}</title>
 	</head>
 	<body>
@@ -35,11 +43,18 @@ const { title, description = "Smart Finances - Your Guide to Financial Freedom" 
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+    --background: #13151a;
+    --text-color: #ffffff;
+    --link-color: #4CAF50; /* Green */
+    --link-hover-color: #45a049; /* Darker Green */
+    --heading-color: #ffffff;
+    --border-color: #ccc;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background: var(--background);
     background-size: cover;
+    color: var(--text-color);
 	}
 	code {
 		font-family:
@@ -52,4 +67,15 @@ const { title, description = "Smart Finances - Your Guide to Financial Freedom" 
 			Courier New,
 			monospace;
 	}
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+  }
 </style>
