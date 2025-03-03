@@ -1,0 +1,39 @@
+---
+const currentPath = Astro.url.pathname;
+---
+<header>
+  <nav>
+    <a href="/" class:list={[{ active: currentPath === '/' }, "nav-link"]}>Home</a>
+    <a href="/blog" class:list={[{ active: currentPath.startsWith('/blog') }, "nav-link"]}>Blog</a>
+    <a href="/about" class:list={[{ active: currentPath === '/about' }, "nav-link"]}>About</a>
+    <a href="/contact" class:list={[{ active: currentPath === '/contact' }, "nav-link"]}>Contact</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: #1a1d23;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+</style>

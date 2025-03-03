@@ -1,0 +1,44 @@
+---
+interface Props {
+  post: any; // Replace 'any' with the actual type of your post object
+}
+
+const { post } = Astro.props;
+---
+
+<div class="blog-post-card">
+  <a href={`/blog/${post.slug}`}>
+    <h3>{post.data.title}</h3>
+  </a>
+  <p>{post.data.description}</p>
+  <p>Published: {post.data.pubDate.toLocaleDateString()}</p>
+  <a href={`/blog/${post.slug}`}>Read More &rarr;</a>
+</div>
+
+<style>
+  .blog-post-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #1a1d23;
+  }
+
+  .blog-post-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .blog-post-card p {
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-post-card a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  .blog-post-card a:hover {
+    text-decoration: underline;
+  }
+</style>
